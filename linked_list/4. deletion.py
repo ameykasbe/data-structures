@@ -1,3 +1,6 @@
+# https://www.geeksforgeeks.org//linked-list-set-3-deleting-node/
+# https://www.geeksforgeeks.org/delete-a-linked-list-node-at-a-given-position/
+
 class LinkedList:
     def __init__(self):
         self.head = None

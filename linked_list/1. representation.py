@@ -1,3 +1,5 @@
+## http://geeksquiz.com/linked-list-set-1-introduction/
+
 class LinkedList:
     def __init__(self):
         self.head = None

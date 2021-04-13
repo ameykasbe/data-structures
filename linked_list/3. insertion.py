@@ -1,3 +1,5 @@
+# https://www.geeksforgeeks.org//linked-list-set-2-inserting-a-node/
+
 class LinkedList:
     def __init__(self):
         self.head = None

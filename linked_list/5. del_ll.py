@@ -1,4 +1,4 @@
-# Iterate through the linked list and delete all the nodes one by one. The main point here is not to access the next of the current pointer if the current pointer is deleted.
+# https://www.geeksforgeeks.org/write-a-function-to-delete-a-linked-list/
 
 class Node:
 

@@ -1,3 +1,6 @@
+# https://www.geeksforgeeks.org//linked-list-set-1-introduction/
+# https://www.geeksforgeeks.org/write-a-function-to-get-nth-node-in-a-linked-list/
+
 class LinkedList:
     def __init__(self):
         self.head = None

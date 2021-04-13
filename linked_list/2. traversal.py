@@ -2,6 +2,19 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+    def get(self, index):
+        if self.head == None:
+            print("Linked List is empty.")
+            return
+
+        ref = self.head
+        for i in range(index):
+            ref = ref.next
+            if ref == None:
+                print("Index out of range.")
+                return
+        return ref.data
+
     def print_list(self):
         ref = self.head
         while(ref):
@@ -30,3 +43,5 @@ if __name__ == '__main__':
     n2.next = n3
 
     ll.print_list()
+
+    print(ll.get(0))

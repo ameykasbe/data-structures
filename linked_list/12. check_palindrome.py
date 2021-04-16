@@ -1,9 +1,10 @@
+# https: // www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/
 # Python3 program to check if
 # linked list is palindrome
 
 # Node class
-class Node:
 
+class Node:
     # Constructor to initialize
     # the node object
     def __init__(self, data):
@@ -13,7 +14,6 @@ class Node:
 
 
 class LinkedList:
-
     # Function to initialize head
     def __init__(self):
 

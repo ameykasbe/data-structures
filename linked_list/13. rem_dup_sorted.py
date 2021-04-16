@@ -24,6 +24,41 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
 
+    # Given a reference to the head of a
+    # list and a key, delete the first
+    # occurence of key in linked list
+    def deleteNode(self, key):
+
+        # Store head node
+        temp = self.head
+
+        # If head node itself holds the
+        # key to be deleted
+        if (temp is not None):
+            if (temp.data == key):
+                self.head = temp.next
+                temp = None
+                return
+
+        # Search for the key to be deleted,
+        # keep track of the previous node as
+        # we need to change 'prev.next'
+        while(temp is not None):
+            if temp.data == key:
+                break
+            prev = temp
+            temp = temp.next
+
+        # if key was not present in
+        # linked list
+        if(temp == None):
+            return
+
+        # Unlink the node from linked list
+        prev.next = temp.next
+
+        temp = None
+
     # Utility function to print the
     # linked LinkedList
     def printList(self):
@@ -32,9 +67,23 @@ class LinkedList:
             print(temp.data, end=' ')
             temp = temp.next
 
-    def remove_duplicates(self):
+    # This function removes duplicates
+    # from a sorted list
+    def removeDuplicates(self):
+        temp = self.head
+        if temp is None:
+            return
+        while temp.next is not None:
+            if temp.data == temp.next.data:
+                new = temp.next.next
+                temp.next = None
+                temp.next = new
+            else:
+                temp = temp.next
+        return self.head
 
-        # Driver Code
+
+# Driver Code
 llist = LinkedList()
 
 llist.push(20)
@@ -48,5 +97,5 @@ llist.printList()
 print()
 print("Linked List after removing",
       "duplicate elements:")
-llist.remove_duplicates()
+llist.removeDuplicates()
 llist.printList()

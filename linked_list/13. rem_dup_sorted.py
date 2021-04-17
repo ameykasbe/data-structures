@@ -1,3 +1,4 @@
+# https://www.geeksforgeeks.org/remove-duplicates-from-a-sorted-linked-list/
 # Python3 program to remove duplicate
 # nodes from a sorted linked list
 
@@ -33,7 +34,7 @@ class LinkedList:
             print(temp.data, end=' ')
             temp = temp.next
 
-    def delete_node(self, prev_node):
+    def delete_node_to_prev(self, prev_node):
         del_node = prev_node.next
         prev_node.next = del_node.next
         del_node = None
@@ -46,7 +47,7 @@ class LinkedList:
         while(ref.next):
             nxt = ref.next
             if nxt.data == ref.data:
-                self.delete_node(ref)
+                self.delete_node_to_prev(ref)
                 nxt = ref.next
             else:
                 ref = ref.next

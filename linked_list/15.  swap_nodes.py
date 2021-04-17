@@ -33,39 +33,27 @@ class LinkedList(object):
             ref = ref.next
 
         # If one value lies in head
-        if x == self.head.data:
+        if x == self.head.data or y == self.head.data:
+            if y == self.head.data:
+                pn2 = pn1
+                n2 = n1
             n1 = self.head
             self.head = n2
-            pn2.next = n1
-            temp = n1.next
-            n1.next = n2.next
-            n2.next = temp
-            return
-
-        if y == self.head.data:
-            pn2 = pn1
-            n2 = n1
-
-            n1 = self.head
-            self.head = n2
-            pn2.next = n1
-            temp = n1.next
-            n1.next = n2.next
-            n2.next = temp
-            return
+        else:
+            pn1.next = n2
 
         # If any missing
         if not (n1 and n2):
             print("One or more data not found.")
             return
 
-        pn1.next = n2
         pn2.next = n1
         temp = n1.next
         n1.next = n2.next
         n2.next = temp
+        return
 
-        # Function to add Node at beginning of list.
+    # Function to add Node at beginning of list.
 
     def push(self, new_data):
 
@@ -101,6 +89,6 @@ llist.push(2)
 llist.push(1)
 print("Linked list before calling swapNodes() ")
 llist.printList()
-llist.swapNodes(4, 3)
+llist.swapNodes(4, 1)
 print("\nLinked list after calling swapNodes() ")
 llist.printList()

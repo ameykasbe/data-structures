@@ -1,47 +1,39 @@
-# # Using only fundamentals
-
 class Stack:
     def __init__(self, max_size):
-        self.stack = list()
         self.top = -1
         self.max_size = max_size
-
-    def is_empty(self):
-        if self.top <= -1:
-            return True
-        return False
+        self.stack = [None] * max_size
 
     def push(self, data):
         if self.top >= self.max_size - 1:
-            print(f"Stack overflow while pushing element {data}.")
+            print(f"Stack overflow while pushing elemeng {data}.")
             exit(1)
-        self.stack.append(data)
         self.top += 1
+        self.stack[self.top] = data
 
     def pop(self):
-        if self.is_empty():
-            print("Stack underflow.")
-            exit(1)
-        item = self.stack.pop()
+        if self.top <= -1:
+            print("Stack underflow")
+            return
+        item = self.stack[self.top]
         self.top -= 1
         return item
 
     def size(self):
-        return (self.top + 1)
+        return self.top + 1
 
     def print_stack(self):
-        if self.is_empty():
+        if self.top <= -1:
             print("Stack empty")
             return
         ref = self.top
-        print("Printing stack.")
         while(ref >= 0):
             print(self.stack[ref])
             ref -= 1
 
     def peek(self):
-        if self.is_empty():
-            print("Stack empty")
+        if self.top <= -1:
+            print("Stack empty.")
             return
         return self.stack[self.top]
 

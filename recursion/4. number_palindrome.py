@@ -22,3 +22,6 @@ def pal(num):
 if __name__ == "__main__":
     num = 12321
     print(pal(num))
+
+    num = 123214
+    print(pal(num))

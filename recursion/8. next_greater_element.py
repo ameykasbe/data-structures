@@ -36,23 +36,13 @@ def next_greater(arr):
     output = list()
     stack = Stack(len(arr))
     for i in arr[::-1]:
-        print("i = ", i)
         while(not stack.is_empty() and stack.peek() < i):
-            x = stack.pop()
-            print("Popped", x)
-            print("After popping stack = ", stack.stack)
-
+            stack.pop()
         if stack.is_empty():
-            print("Stack empty. Appending to output=", i)
             output.append(-1)
-            print("After appending output = ", output)
         else:
-            print("Stack not empty. Appending peek of stack to output", stack.peek())
             output.append(stack.peek())
-            print("After appending output = ", output)
-        print("Pushing", i)
         stack.push(i)
-        print("Stack=", stack.stack)
     return output[::-1]
 
 

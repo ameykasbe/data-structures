@@ -96,32 +96,20 @@ class Tree:
                 queue.enqueue(node.right)
             else:
                 node.right = nn
-                break̥
+                break
 
 
 if __name__ == "__main__":
     tree = Tree()
-    tree.root = Node(1)
-    tree.root.left = Node(2)
-    tree.root.right = Node(3)
-    tree.root.left.left = Node(4)
-    tree.root.left.right = Node(5)
+    tree.insertion(1)
+    tree.insertion(2)
+    tree.insertion(3)
+    tree.insertion(4)
+    tree.insertion(5)
+    tree.level_order_traversal()
 
 #            1
 #        /       \
 #       2          3
 #     /   \
 #    4    5
-
-    print("Before:")
-    tree.level_order_traversal()
-    tree.insertion(6)
-    print("After")
-    tree.level_order_traversal()
-
-
-#            1
-#        /       \
-#       2          3
-#     /   \       /
-#    4    5      6

@@ -15,7 +15,7 @@ def distinct_years(string):
 def distinct_years_regex(string):
     regex = "\d{4}"
     years = re.findall(regex, string)
-    years = list(mḁp(int, years))
+    years = list(map(int, years))
     return years
 
 

@@ -1,3 +1,5 @@
+# https://www.geeksforgeeks.org/find-repetitive-element-1-n-1/
+
 def find_repeating1(arr, n):
     for i in range(n):
         for j in range(i+1, n):

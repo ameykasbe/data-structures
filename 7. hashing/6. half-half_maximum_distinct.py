@@ -1,3 +1,5 @@
+# https://www.geeksforgeeks.org/equally-divide-into-two-sets-such-that-one-set-has-maximum-distinct-elements/
+
 def distribution(arr):
     p1 = list()
     p2 = dict()

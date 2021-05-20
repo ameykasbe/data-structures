@@ -16,6 +16,12 @@ class Heap:
     def right(self, i):
         return 2*i + 2
 
+    def get_min(self):
+        if self.size <= 0:
+            print("Heap empty.")
+            return
+        return self.heap[0]
+
     def extract_min(self):
         if self.size <= 0:
             print("Heap empty.")

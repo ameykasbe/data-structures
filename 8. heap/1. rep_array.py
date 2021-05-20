@@ -1,7 +1,7 @@
 import sys
 
 
-class Heap:
+class MinHeap:
     def __init__(self, capacity):
         self.harr = [None]*capacity
         self.capacity = capacity
@@ -79,7 +79,7 @@ class Heap:
 
 
 if __name__ == "__main__":
-    heap = Heap(10)
+    heap = MinHeap(10)
     heap.insert(3)
     heap.insert(1)
     heap.insert(15)

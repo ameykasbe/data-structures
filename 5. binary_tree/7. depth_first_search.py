@@ -120,33 +120,34 @@ class Tree:
             right = self.search(root.right, key)
             return right
 
-    def node_exists(self, root, key):
+    def depth_first_search(self, key, root):
         if root:
-            if root is None:
-                return False
             if root.data == key:
                 return True
-            left = self.node_exists(root.left, key)
-            if left:
+            l = self.depth_first_search(key, root.left)
+            if l:
                 return True
-            right = self.node_exists(root.right, key)
-            return right
+            r = self.depth_first_search(key, root.right)
+            return r
         return False
 
 
 if __name__ == "__main__":
     tree = Tree()
 
-    tree.insert(1)
-    tree.insert(2)
-    tree.insert(3)
-    tree.insert(4)
-    tree.insert(5)
-    tree.insert(6)
-    tree.insert(7)
+    tree.insert(10)
+    tree.insert(20)
+    tree.insert(30)
+    tree.insert(40)
+    tree.insert(50)
+    tree.insert(60)
+    tree.insert(70)
 
-    print(tree.search(tree.root, 3).data)
-    print(tree.search(tree.root, 8))
-
-    print(tree.node_exists(tree.root, 3))
-    print(tree.node_exists(tree.root, 8))
+    print(tree.depth_first_search(10, tree.root))
+    print(tree.depth_first_search(20, tree.root))
+    print(tree.depth_first_search(30, tree.root))
+    print(tree.depth_first_search(40, tree.root))
+    print(tree.depth_first_search(50, tree.root))
+    print(tree.depth_first_search(60, tree.root))
+    print(tree.depth_first_search(70, tree.root))
+    print(tree.depth_first_search(80, tree.root))

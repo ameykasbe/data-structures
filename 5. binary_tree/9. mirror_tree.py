@@ -93,6 +93,23 @@ class Tree:
         self.mirror(root.left)
         self.mirror(root.right)
 
+    def mirror_iter(self):
+        if self.root is None:
+            return
+
+        queue = Queue(20)
+        queue.enqueue(self.root)
+
+        while(not queue.is_empty()):
+            node = queue.dequeue()
+            node.left, node.right = node.right, node.left
+
+            if node.left:
+                queue.enqueue(node.left)
+
+            if node.right:
+                queue.enqueue(node.right)
+
 
 if __name__ == "__main__":
     tree = Tree()
@@ -105,6 +122,6 @@ if __name__ == "__main__":
     tree.insert(7)
 
     tree.preorder(tree.root)
-    tree.mirror(tree.root)
+    tree.mirror_iter()
     print("\n")
     tree.preorder(tree.root)

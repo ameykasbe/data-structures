@@ -93,6 +93,12 @@ class Tree:
         self.mirror(root.left)
         self.mirror(root.right)
 
+    def mirror2(self, root):
+        if root:
+            self.mirror2(root.left)
+            self.mirror2(root.right)
+            root.left, root.right = root.right, root.left
+
     def mirror_iter(self):
         if self.root is None:
             return
@@ -123,5 +129,10 @@ if __name__ == "__main__":
 
     tree.preorder(tree.root)
     tree.mirror_iter()
+    print("\n")
+    tree.preorder(tree.root)
+    print("\n")
+    tree.preorder(tree.root)
+    tree.mirror2(tree.root)
     print("\n")
     tree.preorder(tree.root)

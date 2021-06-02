@@ -94,31 +94,12 @@ class Tree:
         self.find_hd(root.right, hash_table, hd+1)
 
     def top_view(self):
-        if self.root is None:
-            print("Tree empty.")
-            return
-
         hash_table = dict()
-        queue = Queue(20)
-        queue.enqueue(self.root)
-        self.root.hd = 0
-        while(not queue.is_empty()):
-            node = queue.dequeue()
-            if node.hd not in hash_table:
-                hash_table[node.hd] = node.data
-
-            if node.left:
-                queue.enqueue(node.left)
-                node.left.hd = node.hd - 1
-
-            if node.right:
-                queue.enqueue(node.right)
-                node.right.hd = node.hd + 1
-
+        self.find_hd(self.root, hash_table, 0)
         minimum = min(hash_table)
-        maximnum = max(hash_table)
-        for i in range(minimum, maximnum+1):
-            print(hash_table[i], end=" ")
+        maximum = max(hash_table)
+        for i in range(minimum, maximum+1):
+            print(hash_table[i][0], end=" ")
 
 
 if __name__ == "__main__":

@@ -82,20 +82,21 @@ class Tree:
                 node.right = new_node
                 break
 
-    def find_hd(self, root, hash_table, hd):
+    def find_hd(self, root, hd, level, hash_table):
         if root is None:
             return
-        if hd in hash_table:
-            hash_table[hd].append(root.data)
-        else:
-            hash_table[hd] = [root.data]
 
-        self.find_hd(root.left, hash_table, hd-1)
-        self.find_hd(root.right, hash_table, hd+1)
+        if hd not in hash_table:
+            hash_table[hd] = [root.data, level]
+        elif level < hash_table[hd][1]:
+            hash_table[hd] = [root.data, level]
+
+        self.find_hd(root.left, hd-1, level+1, hash_table)
+        self.find_hd(root.right, hd+1, level+1, hash_table)
 
     def top_view(self):
         hash_table = dict()
-        self.find_hd(self.root, hash_table, 0)
+        self.find_hd(self.root, 0, 0, hash_table)
         minimum = min(hash_table)
         maximum = max(hash_table)
         for i in range(minimum, maximum+1):

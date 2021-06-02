@@ -82,32 +82,25 @@ class Tree:
                 node.right = new_node
                 break
 
-    def top_view(self):
+    def left_view(self):
         if self.root is None:
-            print("Tree empty.")
+            print("Tree empty")
             return
 
-        hash_table = dict()
         queue = Queue(20)
         queue.enqueue(self.root)
-        self.root.hd = 0
+
         while(not queue.is_empty()):
-            node = queue.dequeue()
-            if node.hd not in hash_table:
-                hash_table[node.hd] = node.data
 
-            if node.left:
-                queue.enqueue(node.left)
-                node.left.hd = node.hd - 1
-
-            if node.right:
-                queue.enqueue(node.right)
-                node.right.hd = node.hd + 1
-
-        minimum = min(hash_table)
-        maximnum = max(hash_table)
-        for i in range(minimum, maximnum+1):
-            print(hash_table[i], end=" ")
+            print(queue.queue[queue.front].data, end=" ")
+            # If you want to work on the levels one by one.
+            # For loop takes the range elements once at the beginning only. Doesn't matter what the size is.
+            for i in range(queue.size):
+                node = queue.dequeue()
+                if node.left:
+                    queue.enqueue(node.left)
+                if node.right:
+                    queue.enqueue(node.right)
 
 
 if __name__ == "__main__":
@@ -131,11 +124,8 @@ if __name__ == "__main__":
               8   9 
     '''
 
-    tree.top_view()
+    tree.left_view()
     print("")
-    # Top view of the above binary tree is
-    # 4 2 1 3 7 9
-
     tree = Tree()
     tree.insert(1)
     tree.insert(2)
@@ -154,6 +144,6 @@ if __name__ == "__main__":
              \
                6
     '''
-    tree.top_view()
+    tree.left_view()
     # Top view of the above binary tree is
     # 2 1 3 6

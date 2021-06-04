@@ -140,5 +140,3 @@ if __name__ == "__main__":
                6
     '''
     tree.right_view()
-    # Top view of the above binary tree is
-    # 2 1 3 6

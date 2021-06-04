@@ -99,8 +99,6 @@ class Tree:
                     print(queue.queue[i].data, end=" ")
             ltr = not ltr
 
-            # If you want to work on the levels one by one.
-            # For loop takes the range elements once at the beginning only. Doesn't matter what the size is.
             for i in range(queue.size):
                 node = queue.dequeue()
                 if node.left:
@@ -120,6 +118,7 @@ if __name__ == "__main__":
     tree.insert(7)
     tree.root.right.right.left = Node(8)
     tree.root.right.right.right = Node(9)
+
     '''
           1
         /    \ 
@@ -130,3 +129,4 @@ if __name__ == "__main__":
               8   9 
     '''
     tree.spiral()
+    # 1 2 3 7 6 5 4 8 9
